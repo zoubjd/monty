@@ -35,7 +35,7 @@ while (fgets(line, MAX_LINE_LENGTH, file) != NULL)
 token = strtok(line, DELIMITER);
 while (token != NULL)
 {
-command[i] = strdup(token);
+command[i] = _strdup(token);
 if (command[i] == NULL)
 {
 malloc_error();
