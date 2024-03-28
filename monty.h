@@ -1,6 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -32,7 +37,28 @@ typedef struct instruction_s
 } instruction_t;
 
 
+void execute(char **command);
+/*check for error*/
+void check_argc(int argc);
+void check_monty(FILE *monty, char *file_name);
+void malloc_error(void);
+void line_error(int line_num, char *command);
+
+/*string*/
+int _strlen(const char *s);
+char **tokens(FILE *file);
+char _strcmp(const char *str1, const char *str2);
+int _round(double number);
+int my_isdigit(int c);
+char *_itoa(int n);
+char *_strchr(const char *p, int ch);
+char *_strdup(const char *str);
+void reverse_string(char *buf, int len);
+int is_whole_number(const char *str);
+
+/*execute*/
+stack_t *add_node(stack_t **head, const int n);
+void print(const stack_t *h);
 
 
 #endif
-
