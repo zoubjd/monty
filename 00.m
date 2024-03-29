@@ -1,7 +1,7 @@
-push 0
-push 1
+push 2  
+push 1 lqslkfhqslkfqsl
 push 2
-  push 3
+  push 377
                    pall    
 push 4
     push 5    

@@ -37,7 +37,6 @@ typedef struct instruction_s
 } instruction_t;
 
 
-void execute(char **command);
 /*check for error*/
 void check_argc(int argc);
 void check_monty(FILE *monty, char *file_name);
@@ -47,6 +46,7 @@ void line_error(int line_num, char *command);
 /*string*/
 int _strlen(const char *s);
 char **tokens(FILE *file);
+char **real_tokens(char *line);
 char _strcmp(const char *str1, const char *str2);
 int _round(double number);
 int my_isdigit(int c);
@@ -59,6 +59,7 @@ int is_whole_number(const char *str);
 /*execute*/
 stack_t *add_node(stack_t **head, const int n);
 void print(const stack_t *h);
+void execute(char **command, int line);
 
 
 #endif

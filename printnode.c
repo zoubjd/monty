@@ -12,12 +12,11 @@
 
 void print(const stack_t *h)
 {
-
 if (h != NULL)
 {
 while (h != NULL)
 {
-printf("%d\n", h->n);
+fprintf(stdout, "%d\n", h->n);
 h = h->next;
 }
 }

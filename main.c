@@ -11,6 +11,8 @@ int main(int argc, char *argv[])
 {
 FILE *monty;
 char **command = NULL;
+char **real_command = NULL;
+int i;
 
 check_argc(argc);
 
@@ -23,10 +25,21 @@ if (command == NULL)
 fclose(monty);
 return (EXIT_FAILURE);
 }
-execute(command);
+
+for (i = 0; command[i]; i++)
+{
+real_command = real_tokens(command[i]);
+if (real_command == NULL)
+{
+fclose(monty);
+return (EXIT_FAILURE);
+}
+execute(real_command, (i + 1));
+}
 
 fclose(monty);
 free(command);
+
 
 return (EXIT_SUCCESS);
 
