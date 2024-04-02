@@ -20,7 +20,7 @@ exit(EXIT_FAILURE);
 
 check_monty(monty, argv[1]);
 read_file(monty);
-
+free_nodes();
 return (0);
 
 }
