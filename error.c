@@ -46,4 +46,5 @@ exit(EXIT_FAILURE);
 void value_error(int line)
 {
 fprintf(stderr, "L%d: usage: push integer\n", line);
+exit(EXIT_FAILURE);
 }
