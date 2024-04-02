@@ -12,6 +12,7 @@ if (monty == NULL || file_name == NULL)
 {
 fprintf(stderr, "Error: Can't open file %s\n", file_name);
 exit(EXIT_FAILURE);
+free_nodes();
 }
 }
 
@@ -24,6 +25,7 @@ void malloc_error(void)
 {
 fprintf(stderr, "Error: malloc failed\n");
 exit(EXIT_FAILURE);
+free_nodes();
 }
 
 /**
@@ -36,6 +38,7 @@ void line_error(int line_num, char *command)
 {
 fprintf(stderr, "L%d: unknown instruction %s\n", line_num, command);
 exit(EXIT_FAILURE);
+free_nodes();
 }
 
 
@@ -47,4 +50,5 @@ void value_error(int line)
 {
 fprintf(stderr, "L%d: usage: push integer\n", line);
 exit(EXIT_FAILURE);
+free_nodes();
 }
