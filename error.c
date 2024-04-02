@@ -10,7 +10,7 @@ void check_monty(FILE *monty, char *file_name)
 {
 if (monty == NULL || file_name == NULL)
 {
-fprintf(stderr, "Error: Can't open file %s", file_name);
+fprintf(stderr, "Error: Can't open file %s\n", file_name);
 exit(EXIT_FAILURE);
 }
 }

@@ -62,10 +62,6 @@ void find_func(char *opcode, char *value, int ln, int format)
 			call_fun(func_list[i].f, opcode, value, ln, format);
 			flag = 0;
 		}
-		else if (isdigit(opcode))
-		{
-			value_error(ln);
-		}
 	}
 if (flag == 1)
 {
