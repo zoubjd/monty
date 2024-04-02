@@ -1,4 +1,4 @@
-push 2  
+push 0
 push 1 lqslkfhqslkfqsl
 push 2
   push 377

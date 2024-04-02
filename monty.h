@@ -1,10 +1,13 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <unistd.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdarg.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -21,7 +24,6 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -36,30 +38,29 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
 
-/*check for error*/
-void check_argc(int argc);
+/*nodes*/
+stack_t *create_node(int n);
+void free_nodes(void);
+void add_node(stack_t **new_node, __attribute__((unused))unsigned int ln);
+void print(stack_t **stack, unsigned int line_number);
+int tokenize_line(char *buffer, int line_number, int format);
+
+/*file*/
+void read_file(FILE *file);
+
+/*errors*/
 void check_monty(FILE *monty, char *file_name);
 void malloc_error(void);
 void line_error(int line_num, char *command);
-
-/*string*/
-int _strlen(const char *s);
-char **tokens(FILE *file);
-char **real_tokens(char *line);
-char _strcmp(const char *str1, const char *str2);
-int _round(double number);
-int my_isdigit(int c);
-char *_itoa(int n);
-char *_strchr(const char *p, int ch);
-char *_strdup(const char *str);
-void reverse_string(char *buf, int len);
-int is_whole_number(const char *str);
+void value_error(int line);
 
 /*execute*/
-stack_t *add_node(stack_t **head, const int n);
-void print(const stack_t *h);
-void execute(char **command, int line);
+void find_func(char *opcode, char *value, int ln, int format);
+void call_fun(op_func func, char *op, char *val, int ln, int format);
 
 
 #endif
+
