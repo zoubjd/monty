@@ -91,7 +91,11 @@ void pint(__attribute__((unused))stack_t **stack, unsigned int line_number)
 {
 
 	if (head == NULL)
-		printf("L%d: can't pint, stack empty", line_number);
+	{
+		fprintf(stderr ,"L%d: can't pint, stack empty", line_number);
+		exit(EXIT_FAILURE);
+
+	}
 
 	printf("%d\n", head->n);
 
