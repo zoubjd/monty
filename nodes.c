@@ -93,7 +93,7 @@ void pint(__attribute__((unused))stack_t **stack, unsigned int line_number)
 	if (head == NULL)
 		printf("L%d: can't pint, stack empty", line_number);
 
-	printf("%d", head->n);
+	printf("%d\n", head->n);
 
 }
 
