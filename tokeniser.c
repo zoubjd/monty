@@ -49,6 +49,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 	instruction_t func_list[] = {
 		{"push", add_node},
 		{"pall", print},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 

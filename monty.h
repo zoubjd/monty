@@ -47,6 +47,7 @@ void free_nodes(void);
 void add_node(stack_t **new_node, __attribute__((unused))unsigned int ln);
 void print(stack_t **stack, unsigned int line_number);
 int tokenize_line(char *buffer, int line_number, int format);
+void pint(__attribute__((unused))stack_t **stack, unsigned int line_number);
 
 /*file*/
 void read_file(FILE *file);

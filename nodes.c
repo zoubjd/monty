@@ -82,3 +82,23 @@ void print(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * pint - Adds a node to the queue.
+ * @stack: Pointer to the head.
+ * @ln: line number of the opcode.
+ */
+void pint(__attribute__((unused))stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (head == NULL)
+		printf("L%d: can't pint, stack empty", line_number);
+
+	while (head != NULL)
+	{
+		tmp = head;
+		printf("%d", tmp->n);
+	}
+
+}
+
