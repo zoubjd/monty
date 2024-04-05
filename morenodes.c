@@ -1,33 +1,25 @@
 #include "monty.h"
 
 /**
- * pop - Adds a node to the queue.
- * @stack: Pointer to the head.
- * @line_number: line number of the opcode.
+ * pop - Removes the top element of the stack.
+ * @stack: Pointer to the head of the stack.
+ * @line_number: Line number of the opcode.
  */
-void pop(__attribute__((unused))stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
-stack_t *temp;
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+        exit(EXIT_FAILURE);
+    }
 
-if (head == NULL)
-{
-fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-exit(EXIT_FAILURE);
+    stack_t *temp = *stack;
+    *stack = temp->next;
+
+    if (*stack != NULL)
+    {
+        (*stack)->prev = NULL;
+    }
+
+    free(temp);
 }
-temp = head;
-
-if (temp->next != NULL)
-{
-temp->next = temp->next->next;
-free(temp->next->prev);
-temp->next->prev = temp;
-}
-else
-{
-free(temp->next);
-temp->next = NULL;
-}
-
-}
-
-
