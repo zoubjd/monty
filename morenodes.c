@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * pint - Adds a node to the queue.
+ * pop - Adds a node to the queue.
  * @stack: Pointer to the head.
  * @ln: line number of the opcode.
  */
