@@ -49,3 +49,30 @@ void swap(stack_t **stack, unsigned int line_number)
 	tmp->prev = NULL;
 	*stack = tmp;
 }
+
+/**
+ * add - Swaps the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+    {
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+	
+    while((*stack)->next != NULL)
+        tmp = (*stack)->next;
+
+    tmp->prev->n += tmp->n;
+    tmp->prev->next = NULL;
+    tmp->prev = NULL;
+    free(tmp);
+
+
+}
+
