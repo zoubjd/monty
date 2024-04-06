@@ -85,3 +85,28 @@ void _mod(stack_t **stack, unsigned int line_number)
 
 
 }
+
+/**
+ * pchar - gives the excess of the div the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	int number;
+
+	if (stack == NULL || *stack == NULL)
+    {
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    if (number < 0 || number > 127)
+    {
+        fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    printf("%c\n", number);
+
+
+}

@@ -56,6 +56,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void _division(stack_t **stack, unsigned int line_number);
 void _multip(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 
 /*file*/
 void read_file(FILE *file);
