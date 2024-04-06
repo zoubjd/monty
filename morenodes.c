@@ -36,7 +36,10 @@ void swap(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+    {
 		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+        exit(EXIT_FAILURE);
+    }
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;
 	if (tmp->next != NULL)
