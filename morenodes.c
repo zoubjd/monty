@@ -57,7 +57,7 @@ void swap(stack_t **stack, unsigned int line_number)
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
     {
@@ -65,13 +65,12 @@ void add(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 	
-    while((*stack)->next != NULL)
-        tmp = (*stack)->next;
 
-    tmp->prev->n += tmp->n;
-    tmp->prev->next = NULL;
-    tmp->prev = NULL;
-    free(tmp);
+    (*stack) = (*stack)->next;
+    sum = (*stack)->n + (*stack)->prev->n;
+    (*stack)->n = sum;
+    free((*stack)->prev);
+    (*stack)->prev = NULL;
 
 
 }
