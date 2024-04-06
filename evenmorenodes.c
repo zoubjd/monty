@@ -101,6 +101,8 @@ void pchar(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 
+    number = (*stack)->n;
+    
     if (number < 0 || number > 127)
     {
         fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
