@@ -56,6 +56,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", _division},
+		{"mul", _multip},
 		{NULL, NULL}
 	};
 
