@@ -120,25 +120,25 @@ void pchar(stack_t **stack, unsigned int line_number)
  */
 void pstr(stack_t **stack, unsigned int line_number)
 {
-	char *string;
-    int number, i = 0;
-    (void)line_number;
+	int number;
+	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL)
-    {
+	{
 		printf("\n");
-        exit(EXIT_FAILURE);
-    }
+		return;
+	}
 
-    while((*stack) != NULL)
-    {
-    number = (*stack)->n;
-    if((number > 65 && number < 91) || (number > 97 && number < 123))
-    {
-        string[i] = (char)number;
-    }
-    i++;
-    (*stack) = (*stack)->next;
+	temp = *stack;
+	while (temp != NULL)
+	{
+		number = temp->n;
+		if (number <= 0 || number > 127)
+			break;
+		printf("%c", number);
+		temp = temp->next;
+	}
+	printf("\n");
     }
 
 }
