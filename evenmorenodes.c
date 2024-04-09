@@ -112,3 +112,33 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 
 }
+
+/**
+ * pstr - prints a string
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	char *string;
+    int number, i = 0;
+
+	if (stack == NULL || *stack == NULL)
+    {
+		printf("\n");
+        exit(EXIT_FAILURE);
+    }
+
+    while((*stack) != NULL)
+    {
+    number = (*stack)->n;
+    if((number > 65 && number < 91) || (number > 97 && number < 123))
+    {
+        string[i] = (char)number;
+    }
+    i++;
+    (*stack) = (*stack)->next;
+    }
+
+}
+
