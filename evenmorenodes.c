@@ -122,6 +122,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 {
 	char *string;
     int number, i = 0;
+    (void)line_number;
 
 	if (stack == NULL || *stack == NULL)
     {
